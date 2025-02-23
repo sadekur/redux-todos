@@ -2,7 +2,7 @@ import { GET_TODOS_FAILURE, GET_TODOS_REQUEST, GET_TODOS_SUCCESS } from "../cons
 
 const initialState = {
     todos: [],
-    loading: false,
+    isLoading: false,
     error: null
 };
 
