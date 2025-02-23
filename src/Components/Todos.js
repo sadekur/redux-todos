@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { decrementCounter, incrementCounter, resetCounter } from '../services/actions/counterAction'
+import { decrementCounter, incrementCounter, resetCounter } from '../services/actions/todosAction'
 
 export default function Counter() {
     const count = useSelector(state => state.count) // count(0)
