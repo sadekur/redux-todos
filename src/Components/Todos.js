@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import getAllTodos from '../services/actions/todosAction';
+import './Todos.css'; // Import the CSS file
 
 export default function Todos() {
   const { isLoading, error, todos } = useSelector((state) => state);
@@ -11,17 +12,17 @@ export default function Todos() {
   }, [dispatch]);
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
-      <h2 className="text-4xl font-bold text-center mb-10 text-blue-600">Todos</h2>
+    <div className="todos-container">
+      <h2 className="todos-title">Todos</h2>
 
-      {isLoading && <p className="text-center text-gray-600 animate-pulse">Loading...</p>}
-      {error && <p className="text-center text-red-500">{error.message}</p>}
+      {isLoading && <p className="loading-text">Loading...</p>}
+      {error && <p className="error-text">{error.message}</p>}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="todos-grid">
         {todos.map((todo) => (
-          <div key={todo.id} className="p-6 bg-[#001f3f] rounded-xl shadow-lg text-white">
-            <h3 className="text-xl font-bold">ID: {todo.id}</h3>
-            <p className="text-lg mt-2">Title: {todo.title}</p>
+          <div key={todo.id} className="todo-card">
+            <h3>ID: {todo.id}</h3>
+            <p>Title: {todo.title}</p>
           </div>
         ))}
       </div>
